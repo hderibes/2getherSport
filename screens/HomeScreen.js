@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView, StatusBar,   StyleSheet,} from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { SafeAreaView } from 'react-native-web';
+import { SafeAreaView } from 'react-native';
+import colors from "tailwindcss/colors";
+import { styled } from 'nativewind';
+
+import Top from '../components/Top';
+import Localisation from '../components/Localisation';
 
 
 
+const GlobalView = styled(View, 'overflow-scroll items-center justify-center');
 
 
 export default function HomeScreen() {
@@ -13,22 +19,24 @@ export default function HomeScreen() {
       
       <View className='flex-1'>
         <LinearGradient to-right colors={['black', 'mediumblue']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} style={{flex:1}}>
-        {/* <SafeAreaView> */}
-        <View className="w-1/4 h-100 bg-blue">
-            <Text className='text-2xl text-black'>TogetherSport</Text>
-        </View>
-       
+        <SafeAreaView>
+          <Top/>
+          <ScrollView style={styles.scrollView}>
 
-        {/* </SafeAreaView> */}
-        
+            <Localisation/>
 
-
-          <Text className='text-white'>Home!</Text>
-
-
-
+          </ScrollView>
+        </SafeAreaView>
         </LinearGradient>
         
       </View> 
     );
   }
+
+
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 10,
+  },
+}); 
