@@ -8,6 +8,8 @@ import { styled } from 'nativewind';
 
 import Top from '../components/Top';
 import Localisation from '../components/Localisation';
+import CitySelector from '../components/Selecteur_ville';
+
 
 
 
@@ -23,7 +25,7 @@ export default function HomeScreen() {
           <Top/>
           <ScrollView style={styles.scrollView}>
 
-            <Localisation/>
+            <CitySelector />
 
           </ScrollView>
         </SafeAreaView>
